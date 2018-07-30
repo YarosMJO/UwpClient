@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using UwpClient.ViewModels;
+using UwpClient.ViewModels.UwpClient.ViewModels;
 using UwpClient.Views;
 
 namespace UwpClient
@@ -31,7 +32,7 @@ namespace UwpClient
             SimpleIoc.Default.Register<DeparturesViewModel>();
             SimpleIoc.Default.Register<CrewsViewModel>();
             SimpleIoc.Default.Register<PilotsViewModel>();
-            SimpleIoc.Default.Register<FlightAttendantViewModel>();
+            SimpleIoc.Default.Register<FlightAttendantsViewModel>();
             SimpleIoc.Default.Register<PlanesViewModel>();
             SimpleIoc.Default.Register<PlaneTypesViewModel>();
 
@@ -72,11 +73,11 @@ namespace UwpClient
                 return ServiceLocator.Current.GetInstance<PilotsViewModel>();
             }
         }
-        public FlightAttendantViewModel StewardessesVMInstance
+        public FlightAttendantsViewModel StewardessesVMInstance
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<FlightAttendantViewModel>();
+                return ServiceLocator.Current.GetInstance<FlightAttendantsViewModel>();
             }
         }
 

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     DataContext="{Binding PilotsVMInstance, Source={StaticResource Locator}}">
     <Grid>
-        <ListView ItemsSource="{Binding Flights}"   SelectedItem="{Binding SelectedFlight, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
+        <ListView ItemsSource="{Binding Pilots}"   SelectedItem="{Binding SelectedPilot, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12">
@@ -13,7 +13,7 @@
                             <ColumnDefinition Width="115"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="20" Text="Id" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Text="Destination" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Text="Surname" Style="{ThemeResource CaptionTextBlockStyle}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -24,7 +24,7 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Destination}" />
+                        <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Surname}" />
                         <TextBlock Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
                     </Grid>
                 </DataTemplate>
@@ -32,7 +32,7 @@
         </ListView>
 
         <Grid  Visibility="Visible" 
-          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Flight,Mode=TwoWay}">
+          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Pilot,Mode=TwoWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -58,7 +58,7 @@
                 Grid.Column="1"  
                 FontSize="20" 
                  Height="70"
-                Text="{Binding Id,Mode=TwoWay}"
+                Text="{Binding Id, Mode=TwoWay}"
                 TextWrapping="Wrap"
                 />
 
@@ -67,7 +67,7 @@
                 Grid.Column="1" 
                 FontSize="20"
                  Height="70"
-                Text="{Binding DeparturePoint,Mode=TwoWay}" 
+                Text="{Binding Name ,Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 />
 
@@ -76,7 +76,7 @@
                  Grid.Column="1" 
                  FontSize="20" 
                  Height="70"
-                 Text="{Binding DepartureTime,Mode=TwoWay}" 
+                 Text="{Binding Surname ,Mode=TwoWay}" 
                  TextWrapping="Wrap"
                 />
 
@@ -85,7 +85,7 @@
                 Grid.Column="1"       
                 FontSize="20" 
                 Height="70"
-                Text="{Binding Destination,Mode=TwoWay}"
+                Text="{Binding Birthday,Mode=TwoWay}"
                 TextWrapping="Wrap" 
                 />
 
@@ -94,7 +94,7 @@
                 Grid.Column="1" 
                 FontSize="20" 
                  Height="34"
-                Text="{Binding  ArrivalTime, Mode=TwoWay}" 
+                Text="{Binding Experience , Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 />
 
@@ -105,22 +105,22 @@
             <Button  Content="New"
                 Width="100" FontSize="20"
                 Command="{Binding NewEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Pilot}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20" 
                 Command="{Binding AddEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Pilot}"/>
 
             <Button  Content="Update" 
                 Width="100" FontSize="20"   
                 Command="{Binding UpdateEntity}" 
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Pilot}"/>
 
             <Button  Content="Delete" 
                 Width="100" FontSize="20"         
                 Command="{Binding DeleteEntity}"
-                CommandParameter="{Binding Flight.Id}"/>
+                CommandParameter="{Binding Pilot.Id}"/>
 
 
         </StackPanel>
