@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class TicketService
     {
         HttpClient client;
-        private string uri = App.BaseURI + "tickets";
+        private string Uri = App.BaseUri + "tickets";
 
         public TicketService()
         {
@@ -19,31 +19,31 @@ namespace UwpClient.Services
 
         public async Task<IEnumerable<Ticket>> GetAll()
         {
-            string result = await client.GetStringAsync(uri);
+            string result = await client.GetStringAsync(Uri);
             return JsonConvert.DeserializeObject<IEnumerable<Ticket>>(result);
         }
 
         public async Task<Ticket> Get(int id)
         {
-            string result = await client.GetStringAsync(uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + "/" + id);
             return JsonConvert.DeserializeObject<Ticket>(result);
         }
 
         public async Task Create(Ticket Ticket)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(Ticket), Encoding.UTF8, "application/json");
-            await client.PostAsync(uri, stringContent).ConfigureAwait(false);
+            await client.PostAsync(Uri, stringContent).ConfigureAwait(false);
         }
 
         public async Task Update(Ticket Ticket)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(Ticket), Encoding.UTF8, "application/json");
-            await client.PutAsync(uri + "/" + Ticket.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + "/" + Ticket.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
         }
     }
 }

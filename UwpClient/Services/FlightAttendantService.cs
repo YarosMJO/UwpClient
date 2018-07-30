@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class FlightAttendanService
     {
         HttpClient client;
-        private string uri = App.BaseURI + "flightAttendants";
+        private string Uri = App.BaseUri + "flightAttendants";
 
         public FlightAttendanService()
         {
@@ -19,31 +19,31 @@ namespace UwpClient.Services
 
         public async Task<IEnumerable<FlightAttendant>> GetAll()
         {
-            string result = await client.GetStringAsync(uri);
+            string result = await client.GetStringAsync(Uri);
             return JsonConvert.DeserializeObject<IEnumerable<FlightAttendant>>(result);
         }
 
         public async Task<FlightAttendant> Get(int id)
         {
-            string result = await client.GetStringAsync(uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + "/" + id);
             return JsonConvert.DeserializeObject<FlightAttendant>(result);
         }
 
         public async Task Create(FlightAttendant FlightAttendant)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(FlightAttendant), Encoding.UTF8, "application/json");
-            await client.PostAsync(uri, stringContent).ConfigureAwait(false);
+            await client.PostAsync(Uri, stringContent).ConfigureAwait(false);
         }
 
         public async Task Update(FlightAttendant FlightAttendant)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(FlightAttendant), Encoding.UTF8, "application/json");
-            await client.PutAsync(uri + "/" + FlightAttendant.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + "/" + FlightAttendant.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
         }
     }
 }

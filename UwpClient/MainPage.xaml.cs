@@ -11,55 +11,13 @@ namespace UwpClient
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //    public MainPage()
-        //    {
-        //        InitializeComponent();
-        //        //var frame = (Frame)Window.Current.Content;
-        //        mainFrame.Navigate(typeof(PlaneTypeView));
-
-        //    }
-
-        //    public void Tickets(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(TicketView)); ///////dsdssdsdsdsssdsdsd
-        //    }
-        //    private void Flights(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //    private void Departures(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //    private void Crews(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(TicketView));
-        //    }
-        //    private void Pilots(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //    private void FlightAttendants(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //    private void Planes(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //    private void PlaneTypes(object sender, RoutedEventArgs e)
-        //    {
-        //        mainFrame.Navigate(typeof(HomeView));
-        //    }
-        //}
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            // по умолчанию открываем страницу home.xaml
             myFrame.Navigate(typeof(HomeView));
-            TitleTextBlock.Text = "Главная";
+            TitleTextBlock.Text = "Main";
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
