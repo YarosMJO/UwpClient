@@ -63,7 +63,7 @@
                 Grid.Row="1" 
                 Grid.Column="1" 
                 FontSize="20"
-                 Height="70"
+                 Height="45"
                 Text="{Binding DepartureDate,Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 />
@@ -81,7 +81,7 @@
                 Grid.Row="3" 
                 Grid.Column="1"       
                 FontSize="20" 
-                Height="70"
+                Height="40"
                 Text="{Binding FlightNumber,Mode=TwoWay}"
                 TextWrapping="Wrap" 
                 />

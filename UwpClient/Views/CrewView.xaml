@@ -68,7 +68,7 @@
                  Grid.Row="2" 
                  Grid.Column="1" 
                  FontSize="20" 
-                 Height="70"
+                 Height="67"
                  Text="{Binding FlightAttendants.Count ,Mode=TwoWay}" 
                  TextWrapping="Wrap"
                 />
