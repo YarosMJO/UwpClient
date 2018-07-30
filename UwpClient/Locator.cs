@@ -73,7 +73,7 @@ namespace UwpClient
                 return ServiceLocator.Current.GetInstance<PilotsViewModel>();
             }
         }
-        public FlightAttendantsViewModel StewardessesVMInstance
+        public FlightAttendantsViewModel FlightAttendantsVMInstance
         {
             get
             {

@@ -48,10 +48,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="Id" FontSize="15" />
-            <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Departure point"  FontSize="15" />
-            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Departure time" FontSize="15" />
-            <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Destination"  FontSize="15" />
-            <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="ArrivalTime"  FontSize="15" />
+            <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Name"  FontSize="15" />
+            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Surname" FontSize="15" />
+            <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Birthday"  FontSize="15" />
+            <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Experience"  FontSize="15" />
 
             <TextBox 
                 Grid.Row="0"

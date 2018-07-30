@@ -16,7 +16,7 @@
         {
             FlightAttendant entity;
             FlightAttendant selected;
-            FlightAttendantService FlightAttendantservice;
+            FlightAttendantService flightAttendantservice;
             ObservableCollection<FlightAttendant> flightAttendants;
 
             INavigationService navService;
@@ -40,7 +40,7 @@
 
             public FlightAttendantsViewModel(INavigationService navigationService)
             {
-                FlightAttendantservice = new FlightAttendantService();
+                flightAttendantservice = new FlightAttendantService();
                 navService = navigationService;
 
                 NewEntity = new RelayCommand(New);
@@ -60,26 +60,26 @@
 
             async void Create()
             {
-                await FlightAttendantservice.Create(FlightAttendant);
+                await flightAttendantservice.Create(FlightAttendant);
                 await LoadEntity().ConfigureAwait(false);
             }
 
             async void Update()
             {
-                await FlightAttendantservice.Update(FlightAttendant);
+                await flightAttendantservice.Update(FlightAttendant);
                 await LoadEntity().ConfigureAwait(false);
             }
 
             async void Delete()
             {
-                await FlightAttendantservice.Delete(FlightAttendant.Id);
+                await flightAttendantservice.Delete(FlightAttendant.Id);
                 FlightAttendant = new FlightAttendant();
                 await LoadEntity().ConfigureAwait(false);
             }
 
             async Task LoadEntity()
             {
-                FlightAttendants = new ObservableCollection<FlightAttendant>(await FlightAttendantservice.GetAll());
+                FlightAttendants = new ObservableCollection<FlightAttendant>(await flightAttendantservice.GetAll());
             }
 
             public ObservableCollection<FlightAttendant> FlightAttendants
