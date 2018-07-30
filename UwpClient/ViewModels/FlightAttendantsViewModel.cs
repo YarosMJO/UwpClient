@@ -21,7 +21,7 @@
 
             INavigationService navService;
 
-            public ICommand NewEntity { get; private set; }
+            public ICommand RefreshEntity { get; private set; }
             public ICommand AddEntity { get; private set; }
             public ICommand UpdateEntity { get; private set; }
             public ICommand DeleteEntity { get; private set; }
@@ -43,7 +43,7 @@
                 flightAttendantservice = new FlightAttendantService();
                 navService = navigationService;
 
-                NewEntity = new RelayCommand(New);
+                RefreshEntity = new RelayCommand(Refresh);
                 AddEntity = new RelayCommand(Create);
                 UpdateEntity = new RelayCommand(Update);
                 DeleteEntity = new RelayCommand(Delete);
@@ -53,7 +53,7 @@
             }
 
 
-            void New()
+            void Refresh()
             {
                 FlightAttendant = new FlightAttendant();
             }

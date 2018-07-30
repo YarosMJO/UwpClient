@@ -90,10 +90,10 @@
 
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
 
-            <Button  Content="New"
+            <Button  Content="Refresh"
                 Width="100" FontSize="20"
                     
-                Command="{Binding NewEntity}"
+                Command="{Binding RefreshEntity}"
                 CommandParameter="{Binding Departure}"/>
 
             <Button Content="Add"
