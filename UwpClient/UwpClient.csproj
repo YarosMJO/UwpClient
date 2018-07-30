@@ -95,10 +95,62 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Locator.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Crew.cs" />
+    <Compile Include="Models\Departures.cs" />
+    <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\FlightAttendant.cs" />
+    <Compile Include="Models\Pilot.cs" />
+    <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PlaneType.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CrewService.cs" />
+    <Compile Include="Services\DepartureService.cs" />
+    <Compile Include="Services\FlightAttendantService.cs" />
+    <Compile Include="Services\FlightService.cs" />
+    <Compile Include="Services\PilotService.cs" />
+    <Compile Include="Services\PlaneService.cs" />
+    <Compile Include="Services\PlaneTypeService.cs" />
+    <Compile Include="Services\TicketService.cs" />
+    <Compile Include="ViewModels\CrewsViewModel.cs" />
+    <Compile Include="ViewModels\DeparturesViewModel.cs" />
+    <Compile Include="ViewModels\FlightAttendantsViewModel.cs" />
+    <Compile Include="ViewModels\FlightsViewModel.cs" />
+    <Compile Include="ViewModels\PilotsViewModel.cs" />
+    <Compile Include="ViewModels\PlanesViewModel.cs" />
+    <Compile Include="ViewModels\PlaneTypesViewModel.cs" />
+    <Compile Include="ViewModels\TicketsViewModel.cs" />
+    <Compile Include="Views\CrewView.xaml.cs">
+      <DependentUpon>CrewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartureView.xaml.cs">
+      <DependentUpon>DepartureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlightAttendantView.xaml.cs">
+      <DependentUpon>FlightAttendantView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlightView.xaml.cs">
+      <DependentUpon>FlightView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PilotView.xaml.cs">
+      <DependentUpon>PilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaneTypeView.xaml.cs">
+      <DependentUpon>PlaneTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaneView.xaml.cs">
+      <DependentUpon>PlaneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketView.xaml.cs">
+      <DependentUpon>TicketView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,10 +177,56 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ThemeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CrewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DepartureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FlightAttendantView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FlightView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PilotView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PlaneTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PlaneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TicketView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

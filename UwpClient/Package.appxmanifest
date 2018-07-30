@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="319531f7-58a6-4530-842e-5101d2f0ed93"
-    Publisher="CN=Yaros"
+    Name="28e3e0fc-80d7-4f5e-8f76-b980488d21ec"
+    Publisher="CN=Yaroslav"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="319531f7-58a6-4530-842e-5101d2f0ed93" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="28e3e0fc-80d7-4f5e-8f76-b980488d21ec" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>UwpClient</DisplayName>
-    <PublisherDisplayName>Yaros</PublisherDisplayName>
+    <PublisherDisplayName>Yaroslav</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

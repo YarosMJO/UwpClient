@@ -6,9 +6,87 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource AppBarItemBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button x:Name="HamburgerButton" RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets" FontSize="36"
+                    Background="{Binding ElementName=menu, Path=Background}"
+                    Content="&#xE700;" Click="HamburgerButton_Click"/>
+            <TextBlock Name="TitleTextBlock" RelativePanel.RightOf="HamburgerButton"
+                       FontSize="28" FontWeight="Bold" Margin="30 5 0 0" />
+        </RelativePanel>
 
+        <SplitView Name="mySplitView" Grid.Row="1" OpenPaneLength="200"
+        DisplayMode="CompactInline" CompactPaneLength="56">
+            <SplitView.Pane>
+                <ListBox x:Name="menu" SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="Home">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" />
+                            <TextBlock FontSize="24" Text="Home" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Tickets">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Tickets" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Flights">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Flights" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Departures">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Departures" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Crews">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Crews" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Pilots">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Pilots" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="FlightAttendant">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="FlightAttendant" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Plane">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="Plane" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="PlaneType">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="36" FontFamily="Segoe MDL2 Assets" Text="&#xEF6B;" />
+                            <TextBlock FontSize="24" Text="PlaneType" Margin="20 0 0 0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="myFrame" />
+            </SplitView.Content>
+        </SplitView>
     </Grid>
+
 </Page>
