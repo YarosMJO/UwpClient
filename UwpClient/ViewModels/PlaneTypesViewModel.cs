@@ -76,7 +76,7 @@ namespace UwpClient.ViewModels
 
         async Task LoadEntity()
         {
-            planeTypes = new ObservableCollection<PlaneType>(await PlaneTypeservice.GetAll());
+            PlaneTypes = new ObservableCollection<PlaneType>(await PlaneTypeservice.GetAll());
         }
 
         public ObservableCollection<PlaneType> PlaneTypes
