@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class DepartureService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "departures";
+        private string Uri = App.BaseUri + "departures/";
 
         public DepartureService()
         {

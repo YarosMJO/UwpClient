@@ -107,40 +107,29 @@
         
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
 
-            <Button Name="btnNew" Content="New"
+            <Button  Content="New"
                 Width="100" FontSize="20"
                     
                 Command="{Binding NewEntity}"
                 CommandParameter="{Binding Flight}"/>
 
-            <Button Name="btnadd" Content="Add"
+            <Button Content="Add"
                 Width="100" FontSize="20"
                     
                 Command="{Binding AddEntity}"
                 CommandParameter="{Binding Flight}"/>
 
-            <Button Name="btnupdate" Content="Update" 
+            <Button  Content="Update" 
                 Width="100" FontSize="20" 
                     
                 Command="{Binding UpdateEntity}" 
                 CommandParameter="{Binding Flight}"/>
 
-            <!--<Button Name="btndelete" Content="Delete" 
+            <Button  Content="Delete" 
                 Width="100" FontSize="20"
                     
                 Command="{Binding DeleteEntity}"
-                CommandParameter="{Binding Flight.Id}"/>-->
-
-            <Button 
-                Name="btndelete" 
-                Content="Delete" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" 
-                Width="180"
-                FontSize="25"
-                Command="{Binding DeleteEntity}"
-                CommandParameter="{Binding Flight}"/>
-
+                CommandParameter="{Binding Flight.Id}"/>
 
 
         </StackPanel>

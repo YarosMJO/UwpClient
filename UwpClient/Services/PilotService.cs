@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class PilotService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "pilots";
+        private string Uri = App.BaseUri + "pilots/";
 
         public PilotService()
         {

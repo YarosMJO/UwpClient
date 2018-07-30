@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class CrewService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "crews";
+        private string Uri = App.BaseUri + "crews/";
 
         public CrewService()
         {

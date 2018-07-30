@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class FlightAttendanService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "flightAttendants";
+        private string Uri = App.BaseUri + "flightAttendants/";
 
         public FlightAttendanService()
         {

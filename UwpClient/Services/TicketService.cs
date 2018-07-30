@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class TicketService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "tickets";
+        private string Uri = App.BaseUri + "tickets/";
 
         public TicketService()
         {
