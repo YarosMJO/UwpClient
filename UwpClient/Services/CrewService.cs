@@ -25,11 +25,12 @@ namespace UwpClient.Services
 
         public async Task<Crew> Get(int id)
         {
-            string result = await client.GetStringAsync(Uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + id);
             return JsonConvert.DeserializeObject<Crew>(result);
         }
 
-        public async Task Add(Crew Crew)
+
+        public async Task Create(Crew Crew)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(Crew), Encoding.UTF8, "application/json");
             await client.PostAsync(Uri, stringContent).ConfigureAwait(false);
@@ -38,12 +39,12 @@ namespace UwpClient.Services
         public async Task Update(Crew Crew)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(Crew), Encoding.UTF8, "application/json");
-            await client.PutAsync(Uri + "/" + Crew.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + Crew.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + id).ConfigureAwait(false);
         }
     }
 }

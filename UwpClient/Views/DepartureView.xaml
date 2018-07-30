@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     DataContext="{Binding DeparturesVMInstance, Source={StaticResource Locator}}">
     <Grid>
-        <ListView ItemsSource="{Binding Flights}"   SelectedItem="{Binding SelectedFlight, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
+        <ListView ItemsSource="{Binding Planes}"   SelectedItem="{Binding SelectedPlane, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12">
@@ -18,7 +18,7 @@
                 </DataTemplate>
             </ListView.HeaderTemplate>
             <ListView.ItemTemplate>
-                <DataTemplate x:Name="TableDataTemplate" >
+                <DataTemplate  >
                     <Grid Height="48" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
@@ -31,8 +31,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid x:Name="detailGrid" Visibility="Visible" 
-          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Flight,Mode=TwoWay}">
+        <Grid  Visibility="Visible" 
+          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Plane,Mode=TwoWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -54,7 +54,6 @@
             <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="ArrivalTime"  FontSize="15" />
 
             <TextBox 
-                x:Name="txtordid" 
                 Grid.Row="0"
                 Grid.Column="1"  
                 FontSize="20" 
@@ -64,7 +63,6 @@
                 />
 
             <TextBox 
-                x:Name="txtorditem" 
                 Grid.Row="1" 
                 Grid.Column="1" 
                 FontSize="20"
@@ -74,7 +72,6 @@
                 />
 
             <TextBox 
-                x:Name="txtortqty"
                  Grid.Row="2" 
                  Grid.Column="1" 
                  FontSize="20" 
@@ -84,7 +81,6 @@
                 />
 
             <TextBox 
-                x:Name="txtunitprice"
                 Grid.Row="3" 
                 Grid.Column="1"       
                 FontSize="20" 
@@ -94,7 +90,6 @@
                 />
 
             <TextBox 
-                x:Name="txtutotalbill" 
                  Grid.Row="4" 
                 Grid.Column="1" 
                 FontSize="20" 
@@ -111,25 +106,25 @@
                 Width="100" FontSize="20"
                     
                 Command="{Binding NewEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Plane}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20"
                     
                 Command="{Binding AddEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Plane}"/>
 
             <Button  Content="Update" 
                 Width="100" FontSize="20" 
                     
                 Command="{Binding UpdateEntity}" 
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Plane}"/>
 
             <Button  Content="Delete" 
                 Width="100" FontSize="20"
                     
                 Command="{Binding DeleteEntity}"
-                CommandParameter="{Binding Flight.Id}"/>
+                CommandParameter="{Binding Plane.Id}"/>
 
 
         </StackPanel>

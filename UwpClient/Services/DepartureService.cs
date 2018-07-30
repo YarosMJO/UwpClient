@@ -25,9 +25,10 @@ namespace UwpClient.Services
 
         public async Task<Departure> Get(int id)
         {
-            string result = await client.GetStringAsync(Uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + id);
             return JsonConvert.DeserializeObject<Departure>(result);
         }
+
 
         public async Task Create(Departure Departure)
         {
@@ -38,12 +39,12 @@ namespace UwpClient.Services
         public async Task Update(Departure Departure)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(Departure), Encoding.UTF8, "application/json");
-            await client.PutAsync(Uri + "/" + Departure.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + Departure.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + id).ConfigureAwait(false);
         }
     }
 }

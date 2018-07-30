@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace UwpClient.Services
 {
-    public class FlightAttendanService
+    public class FlightAttendantService
     {
         HttpClient client;
         private string Uri = App.BaseUri + "flightAttendants/";
 
-        public FlightAttendanService()
+        public FlightAttendantService()
         {
             client = new HttpClient();
         }
@@ -25,9 +25,10 @@ namespace UwpClient.Services
 
         public async Task<FlightAttendant> Get(int id)
         {
-            string result = await client.GetStringAsync(Uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + id);
             return JsonConvert.DeserializeObject<FlightAttendant>(result);
         }
+
 
         public async Task Create(FlightAttendant FlightAttendant)
         {
@@ -38,12 +39,12 @@ namespace UwpClient.Services
         public async Task Update(FlightAttendant FlightAttendant)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(FlightAttendant), Encoding.UTF8, "application/json");
-            await client.PutAsync(Uri + "/" + FlightAttendant.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + FlightAttendant.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + id).ConfigureAwait(false);
         }
     }
 }
