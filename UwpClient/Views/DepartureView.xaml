@@ -63,7 +63,7 @@
                 Grid.Row="1" 
                 Grid.Column="1" 
                 FontSize="20"
-                 Height="42"
+                 Height="45"
                 Text="{Binding DepartureDate,Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 />
@@ -90,6 +90,11 @@
 
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
 
+            <Button  Content="New"
+                Width="100" FontSize="20"
+                    
+                Command="{Binding NewEntity}"
+                CommandParameter="{Binding Departure}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20"

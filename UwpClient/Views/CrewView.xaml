@@ -78,6 +78,12 @@
 
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
 
+            <Button  Content="New"
+                Width="100" FontSize="20"
+                    
+                Command="{Binding NewEntity}"
+                CommandParameter="{Binding Crew}"/>
+
             <Button Content="Add"
                 Width="100" FontSize="20"
                     

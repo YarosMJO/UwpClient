@@ -53,6 +53,14 @@
             <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="LifeTime"  FontSize="15" />
             <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Type"  FontSize="15" />
 
+            <TextBox 
+                Grid.Row="0"
+                Grid.Column="1"  
+                FontSize="20" 
+                 Height="70"
+                Text="{Binding Id,Mode=TwoWay}"
+                TextWrapping="Wrap"
+                />
 
             <TextBox 
                 Grid.Row="1" 
@@ -93,6 +101,11 @@
         </Grid>
 
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
+
+            <Button  Content="New"
+                Width="100" FontSize="20"
+                Command="{Binding NewEntity}"
+                CommandParameter="{Binding Plane}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20"

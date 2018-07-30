@@ -18,6 +18,7 @@ namespace UwpClient.ViewModels
 
         INavigationService navService;
 
+        public ICommand NewEntity { get; private set; }
         public ICommand AddEntity { get; private set; }
         public ICommand UpdateEntity { get; private set; }
         public ICommand DeleteEntity { get; private set; }
@@ -39,11 +40,18 @@ namespace UwpClient.ViewModels
             Departureservice = new DepartureService();
             navService = navigationService;
 
+            NewEntity = new RelayCommand(New);
             AddEntity = new RelayCommand(Create);
             UpdateEntity = new RelayCommand(Update);
             DeleteEntity = new RelayCommand(Delete);
 
             LoadEntity().ConfigureAwait(false);
+            Departure = new Departure();
+        }
+
+
+        void New()
+        {
             Departure = new Departure();
         }
 

@@ -24,8 +24,8 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Surname}" />
-                        <TextBlock Grid.Column="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Surname}" />
+                        <TextBlock Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -93,6 +93,11 @@
         </Grid>
 
         <StackPanel HorizontalAlignment="Right" Height="300" VerticalAlignment="Top">
+
+            <Button  Content="New"
+                Width="100" FontSize="20"
+                Command="{Binding NewEntity}"
+                CommandParameter="{Binding FlightAttendant}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20" 
