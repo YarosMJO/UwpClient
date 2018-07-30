@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     DataContext="{Binding CrewsVMInstance, Source={StaticResource Locator}}">
     <Grid>
-        <ListView ItemsSource="{Binding Flights}"   SelectedItem="{Binding SelectedFlight, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
+        <ListView ItemsSource="{Binding Crews}"   SelectedItem="{Binding SelectedCrew, Mode=TwoWay}" Width="300" HorizontalAlignment="Left"  VerticalAlignment="Top">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12">
@@ -13,7 +13,6 @@
                             <ColumnDefinition Width="115"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="20" Text="Id" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Text="Destination" Style="{ThemeResource CaptionTextBlockStyle}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -24,7 +23,6 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Destination}" />
                         <TextBlock Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
                     </Grid>
                 </DataTemplate>
@@ -32,11 +30,8 @@
         </ListView>
 
         <Grid Visibility="Visible" 
-          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Flight,Mode=TwoWay}">
+          VerticalAlignment="Top" Width="300" Height="200" DataContext="{Binding Path=Crew,Mode=TwoWay}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -48,10 +43,8 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="Id" FontSize="15" />
-            <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Departure point"  FontSize="15" />
-            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Departure time" FontSize="15" />
-            <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Destination"  FontSize="15" />
-            <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="ArrivalTime"  FontSize="15" />
+            <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Pilot name"  FontSize="15" />
+            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Stewardesses count" FontSize="15" />
 
             <TextBox 
                 Grid.Row="0"
@@ -67,7 +60,7 @@
                 Grid.Column="1" 
                 FontSize="20"
                  Height="70"
-                Text="{Binding DeparturePoint,Mode=TwoWay}" 
+                Text="{Binding Pilot.Name,Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 />
 
@@ -76,27 +69,10 @@
                  Grid.Column="1" 
                  FontSize="20" 
                  Height="70"
-                 Text="{Binding DepartureTime,Mode=TwoWay}" 
+                 Text="{Binding FlightAttendants.Count ,Mode=TwoWay}" 
                  TextWrapping="Wrap"
                 />
 
-            <TextBox 
-                Grid.Row="3" 
-                Grid.Column="1"       
-                FontSize="20" 
-                Height="70"
-                Text="{Binding Destination,Mode=TwoWay}"
-                TextWrapping="Wrap" 
-                />
-
-            <TextBox 
-                 Grid.Row="4" 
-                Grid.Column="1" 
-                FontSize="20" 
-                 Height="34"
-                Text="{Binding  ArrivalTime, Mode=TwoWay}" 
-                TextWrapping="Wrap"
-                />
 
         </Grid>
 
@@ -106,25 +82,25 @@
                 Width="100" FontSize="20"
                     
                 Command="{Binding NewEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Crew}"/>
 
             <Button Content="Add"
                 Width="100" FontSize="20"
                     
                 Command="{Binding AddEntity}"
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Crew}"/>
 
             <Button  Content="Update" 
                 Width="100" FontSize="20" 
                     
                 Command="{Binding UpdateEntity}" 
-                CommandParameter="{Binding Flight}"/>
+                CommandParameter="{Binding Crew}"/>
 
             <Button  Content="Delete" 
                 Width="100" FontSize="20"
                     
                 Command="{Binding DeleteEntity}"
-                CommandParameter="{Binding Flight.Id}"/>
+                CommandParameter="{Binding Crew.Id}"/>
 
 
         </StackPanel>
