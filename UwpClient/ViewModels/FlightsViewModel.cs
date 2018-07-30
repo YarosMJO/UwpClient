@@ -3,14 +3,14 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UwpClient.Services;
 
 namespace UwpClient.ViewModels
 {
-    public class FlightsViewModel : ViewModelBase, INotifyPropertyChanged
+
+    public class FlightsViewModel : ViewModelBase
     {
         Flight entity;
         Flight selected;
@@ -24,26 +24,41 @@ namespace UwpClient.ViewModels
         public ICommand UpdateEntity { get; private set; }
         public ICommand DeleteEntity { get; private set; }
 
-        public FlightsViewModel(INavigationService navService)
+        public Flight SelectedFlight
         {
+            get { return selected; }
+            set
+            {
+                selected = value;
+                Flight = selected;
+                RaisePropertyChanged(() => SelectedFlight);
+            }
+        }
+
+
+        public FlightsViewModel(INavigationService navigationService)
+        {
+            flightservice = new FlightService();
+            navService = navigationService;
+
             NewEntity = new RelayCommand(New);
             AddEntity = new RelayCommand(Create);
             UpdateEntity = new RelayCommand(Update);
             DeleteEntity = new RelayCommand(Delete);
-            flightservice = new FlightService();
-            this.navService = navService;
+
             LoadEntity().ConfigureAwait(false);
             Flight = new Flight();
         }
+
 
         void New()
         {
             Flight = new Flight();
         }
 
-        async void Delete()
+        async void Create()
         {
-            await flightservice.Delete(FlightId);
+            await flightservice.Create(Flight);
             await LoadEntity().ConfigureAwait(false);
         }
 
@@ -53,9 +68,10 @@ namespace UwpClient.ViewModels
             await LoadEntity().ConfigureAwait(false);
         }
 
-        async void Create()
+        async void Delete()
         {
-            await flightservice.Create(Flight);
+            await flightservice.Delete(Flight.Id);
+            Flight = new Flight();
             await LoadEntity().ConfigureAwait(false);
         }
 
@@ -95,18 +111,5 @@ namespace UwpClient.ViewModels
                 RaisePropertyChanged(() => FlightId);
             }
         }
-
-
-        public Flight SelectedFlight
-        {
-            get { return selected; }
-            set
-            {
-                selected = value;
-                Flight = selected;
-                RaisePropertyChanged(() => SelectedFlight);
-            }
-        }
-
     }
 }

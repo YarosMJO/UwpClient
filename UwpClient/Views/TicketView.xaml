@@ -111,19 +111,19 @@
             <Button Name="btnadd" Content="Add"
                 Width="100" FontSize="20"
                     
-                Command="{Binding Path=AddFlight}"
+                Command="{Binding Path=AddEntity}"
                 CommandParameter="{Binding Flight}"/>
 
             <Button Name="btnupdate" Content="Update" 
                 Width="100" FontSize="20" 
                     
-                Command="{Binding UpdateFlight}" 
+                Command="{Binding UpdateEntity}" 
                 CommandParameter="{Binding Flight}"/>
 
             <Button Name="btndelete" Content="Delete" 
                 Width="100" FontSize="20"
                     
-                Command="{Binding DeleteFlight}"
+                Command="{Binding DeleteEntity}"
                 CommandParameter="{Binding Flight}"/>
 
 

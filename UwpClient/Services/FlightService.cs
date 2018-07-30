@@ -10,7 +10,7 @@ namespace UwpClient.Services
     public class FlightService
     {
         HttpClient client;
-        private string Uri = App.BaseUri + "flights";
+        private string Uri = App.BaseUri + "flights/";
 
         public FlightService()
         {
@@ -25,9 +25,10 @@ namespace UwpClient.Services
 
         public async Task<Flight> Get(int id)
         {
-            string result = await client.GetStringAsync(Uri + "/" + id);
+            string result = await client.GetStringAsync(Uri + id);
             return JsonConvert.DeserializeObject<Flight>(result);
         }
+
 
         public async Task Create(Flight flight)
         {
@@ -38,15 +39,12 @@ namespace UwpClient.Services
         public async Task Update(Flight flight)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(flight), Encoding.UTF8, "application/json");
-            await client.PutAsync(Uri + "/" + flight.Id, stringContent).ConfigureAwait(false);
+            await client.PutAsync(Uri + flight.Id, stringContent).ConfigureAwait(false);
         }
 
         public async Task Delete(int id)
         {
-            await client.DeleteAsync(Uri + "/" + id).ConfigureAwait(false);
+            await client.DeleteAsync(Uri + id).ConfigureAwait(false);
         }
-
-
-
     }
 }
